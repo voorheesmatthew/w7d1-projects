@@ -10,5 +10,5 @@ document.addEventListener('DOMContentLoaded', () => {
   window.store = store;
   window.allTodos = allTodos;
   const root = document.getElementById('root');
-  ReactDOM.render(<Root /> ,root);
+  ReactDOM.render(<Root store={store}/> ,root);
 });
