@@ -1,6 +1,7 @@
 import receiveTodos from '../actions/todo_actions';
 import receiveTodo from '../actions/todo_actions';
 import {RECEIVE_TODOS, RECEIVE_TODO} from '../actions/todo_actions';
+import merge from 'lodash/merge';
 
 const initialState = {
   1: {
@@ -23,7 +24,7 @@ const todosReducer = (state = initialState, action) => {
   switch(action.type) {
     case RECEIVE_TODOS:
       let newState = {};
-      action.todos.forEach((todo, idx) => newState[idx] = todo);
+      action.todos.forEach((todo) => newState[todo.id] = todo);
       return newState;
     case RECEIVE_TODO:
       newState = merge({}, state);
